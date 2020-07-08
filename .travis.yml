@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 
 services:
@@ -7,4 +8,4 @@ before_install:
     - docker build -t learnwithvinod/react-app:latest .
 
 script:
-    - 
+    - docker run -e CI=true USERNAME/docker-react npm run test
