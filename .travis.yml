@@ -10,17 +10,16 @@ before_install:
 script:
     - docker run -e CI=true learnwithvinod/react-app:for-test npm test
 
-# 👆🏼upto here for test
+# upto here for test
 
 deploy:
-    description: "docker react application"
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker-react-app"
     env: "DockerReactApp-env"
     bucket_name: "elasticbeanstalk-us-east-2-575452076059"
     bucket_path: "docker-react-app"
-    # 👆🏼same as value of "app" property
+    # same as value of "app" property
     access_key_id: "AKIAYL6453ANTEON2R5Q"
     secret_access_key: "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"
     skip_cleanup: true
