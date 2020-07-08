@@ -5,7 +5,7 @@ services:
     - docker
 
 before_install:
-    - docker build -t learnwithvinod/react-app:latest .
+    - docker build -t learnwithvinod/react-app:for-test -f Dockerfile.dev .
 
 script:
-    - docker run -e CI=true learnwithvinod/react-app:latest npm run test
+    - docker run -e CI=true learnwithvinod/react-app:for-test npm test
