@@ -13,6 +13,7 @@ script:
 # 👆🏼upto here for test
 
 deploy:
+    description: "docker react application"
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker-react-app"
