@@ -1,6 +1,4 @@
-language: generic
 sudo: required
-
 deploy:
     provider: elasticbeanstalk
     description: "docker-react-app"
@@ -9,10 +7,8 @@ deploy:
     env: "DockerReactApp-env"
     bucket_name: "elasticbeanstalk-us-east-2-575452076059"
     bucket_path: "docker-react-app"
-    skip_cleanup: "true"
+    skip_cleanup: true
     on:
         branch: master
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY"
-
-    
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
