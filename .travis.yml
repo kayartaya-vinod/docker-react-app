@@ -20,4 +20,9 @@ deploy:
     skip_cleanup: "true"
     on:
         branch: master
+    access_key_id: 
+        secret: "AKIAYL6453ANTEON2R5Q"
+    secret_access_key: 
+        secret: "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"
+
     
