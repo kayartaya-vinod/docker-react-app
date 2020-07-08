@@ -1,27 +1,21 @@
-language: generic
 sudo: required
+services:
+  - docker
 
-# services:
-#     - docker
+before_install:
+  - docker build -t learnwithvinod/docker-react-app -f Dockerfile.dev .
 
-# before_install:
-#     - docker build -t learnwithvinod/react-app:for-test -f Dockerfile.dev .
-
-# script:
-#     - docker run -e CI=true learnwithvinod/react-app:for-test npm test
+script:
+  - docker run -e CI=true learnwithvinod/docker-react-app npm test
 
 deploy:
-    provider: elasticbeanstalk
-    description: "docker-react-app"
-    region: "us-east-2"
-    app: "docker-react-app"
-    env: "DockerReactApp-env"
-    bucket_name: "elasticbeanstalk-us-east-2-575452076059"
-    bucket_path: "docker-react-app"
-    skip_cleanup: "true"
-    on:
-        branch: master
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY"
-
-    
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react-app"
+  env: "DockerReactApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-575452076059"
+  bucket_path: "docker-react-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
